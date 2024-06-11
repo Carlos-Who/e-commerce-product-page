@@ -35,3 +35,50 @@ $e-commerce-product-page-theme: mat.define-theme((
 // Comment out the line below if you want to use the deprecated `color` inputs.
 // @include mat.color-variants-backwards-compatibility($e-commerce-product-page-theme);
 /* You can add global styles to this file, and also import other style files */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
+  scrollbar-color: #6E6E73 #FAFAFC;
+  scrollbar-width: thin;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: 400;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  font-style: italic;
+  font-size: .7rem;
+  border-style: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+::-moz-selection {
+  color: white;
+  background: hsl(26, 100%, 55%);
+}
+
+::selection {
+  color: white;
+  background: hsl(26, 100%, 55%);
+}
