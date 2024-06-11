@@ -1,0 +1,46 @@
+
+.container {
+  width: 90vw;
+  max-width: 100%;
+  margin: 0 auto;
+  //background-color: royalblue;
+  transition: all 0.3s ease;
+}
+
+.container-sm {
+  width: 90vw;
+  max-width: 100%;
+  margin: 0 auto;
+  //background-color: royalblue;
+  transition: all 0.3s ease;
+}
+
+
+@media only screen and (min-width: 600px) {
+  .container {
+    width: 90vw;
+    max-width: 70rem;
+    //background-color: salmon;
+  }
+  .container-sm {
+    width: 90vw;
+    max-width: 70rem;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .container {
+    width: 90vw;
+    max-width: 98rem;
+    //background-color: seagreen;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .container {
+    width: 90vw;
+    max-width: 72rem;
+    //background-color: slateblue;
+  }
+
+}
