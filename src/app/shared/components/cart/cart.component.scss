@@ -1,0 +1,134 @@
+
+.mat-badge-content {
+  background-color: hsl(26, 100%, 55%);
+}
+
+.cart-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+}
+
+.cart-button-icon {
+  width: 1.8rem;
+}
+
+.cart-dialog-container {
+  position: absolute;
+  top: 7rem;
+  right: 0;
+  z-index: 222;
+
+  width: 20.5rem;
+  height: auto;
+  min-height: 13rem;
+  border: 1px solid hsl(223, 64%, 98%);
+  border-radius: .8rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+  background-color: white;
+}
+
+.cart-dialog-header {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 700;
+  height: 4rem;
+  padding: 0 .8em;
+  border-bottom: 1px solid #e9e9ed;
+  background-color: white;
+}
+
+.cart-dialog-header-title { }
+
+.cart-dialog-content {
+  max-height: 18rem;
+  padding: 1em 1.5em .8em 1.5em;
+  overflow-y: auto;
+}
+
+.cart-dialog__card-item {
+  display: flex;
+  justify-content: space-between;
+  height: 4rem;
+  align-items: center;
+  background-color: white;
+}
+
+.card-item-thumbnail-container {
+  width: 3rem;
+  height: 3rem;
+  border-radius: .33rem;
+  overflow: hidden;
+}
+
+.card-item-thumbnail { }
+
+.card-item-details-container { }
+
+.card-item-details-title {
+  color: hsl(219, 9%, 45%);
+  font-size: .9rem;
+  font-weight: 400;
+  margin-bottom: .15rem;
+}
+
+.card-item-details-price { }
+
+.card-item-details-price-regular {
+  color: hsl(219, 9%, 45%);
+  font-size: .9rem;
+  font-weight: 400;
+  margin-right: .4rem;
+}
+
+.card-item-details-price-total {
+  color: hsl(220, 13%, 13%);
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.card-item-delete-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #C3CAD9;
+  width: 11%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  transition: background-color .3s, color .3s;
+  &:hover {
+    color: #fb5d88;
+    background-color: #f9f9f9;
+  }
+}
+
+.cart-dialog-footer {
+  height: 5.5rem;
+  padding: .5rem 1.5em 2em 1.5em;
+  background-color: white;
+}
+
+.cart-dialog__checkout-button {
+  cursor: pointer;
+  color: white;
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: .2px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: .5rem;
+  background-color: hsl(26, 100%, 55%);
+  transition: background-color .3s;
+  &:hover {
+    background-color: hsl(26, 90%, 52%);
+  }
+}
