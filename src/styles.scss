@@ -74,6 +74,15 @@ a {
   text-decoration: none;
 }
 
+input.disable-default-number-controls::-webkit-outer-spin-button,
+input.disable-default-number-controls::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number].disable-default-number-controls {
+  -moz-appearance: textfield;
+}
+
 ::-moz-selection {
   color: white;
   background: hsl(26, 100%, 55%);
