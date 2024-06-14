@@ -28,11 +28,11 @@
 }
 
 .header__navigation {
+  position: relative;
   height: 100%;
 }
 
 .header__navigation-list {
-  position: relative;
   display: flex;
   gap: clamp(.9rem, 2.4vw, 2rem);
   flex-basis: content;
@@ -53,7 +53,7 @@
   color: hsl(219, 9%, 45%);
   font-size: clamp(.9rem, 2vw, 1rem);
   height: 100%;
-  border-bottom: .32rem solid hsl(0, 0%, 100%);
+  border-bottom: .32rem solid transparent;
   transition: border-bottom .3s;
 
   &:hover {
@@ -76,7 +76,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
+  width: 2.2rem;
 }
 
 
@@ -89,17 +90,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-left: clamp(.8rem, 3vw, 1.3rem);
 }
 .avatar-container {
   display: flex;
   justify-content: center;
   align-content: center;
-  width: 5.75vw;
-  max-width: 3rem;
+  width: clamp(2.4rem, 6.4vw, 3rem);
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 2px solid hsl(26, 100%, 55%);
+  border: 2px solid transparent;
   overflow: hidden;
+  transition: border .18s ease-in;
+
+  &:hover {
+    border: 2px solid hsl(26, 100%, 55%);
+  }
 }
 
 .avatar-thumbnail {
