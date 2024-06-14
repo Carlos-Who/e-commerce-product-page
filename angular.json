@@ -31,6 +31,13 @@
                 "input": "public"
               }
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/scss",
+                "src/scss/",
+                "src/scss/layout/_containers.scss"
+              ]
+            },
             "styles": [
               "src/styles.scss"
             ],
@@ -95,6 +102,13 @@
                 "input": "public"
               }
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/scss",
+                "src/scss/",
+                "src/scss/layout/_containers.scss"
+              ]
+            },
             "styles": [
               "src/styles.scss"
             ],
