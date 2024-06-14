@@ -1,0 +1,43 @@
+
+<div>
+    <span mat-dialog-title class="dialog-header">
+      <button type="button" class="material-dialog__close-button" [mat-dialog-close]="true">
+        <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
+          <path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="#FFFFF" fill-rule="evenodd"/>
+        </svg>
+      </button>
+    </span>
+  <mat-dialog-content class="material-dialog">
+
+    <swiper-container init="false" #swiperLightbox class="mySwiper">
+      <swiper-slide class="swiper-slide-element">
+        <img [ngSrc]="data.gallery[0]" alt="" fill priority class="slide-image"/>
+      </swiper-slide>
+      <swiper-slide class="swiper-slide-element">
+        <img [ngSrc]="data.gallery[1]" alt="" fill priority class="slide-image"/>
+      </swiper-slide>
+      <swiper-slide class="swiper-slide-element">
+        <img [ngSrc]="data.gallery[2]" alt="" fill priority class="slide-image"/>
+      </swiper-slide>
+      <swiper-slide class="swiper-slide-element">
+        <img [ngSrc]="data.gallery[3]" alt="" fill priority class="slide-image"/>
+      </swiper-slide>
+    </swiper-container>
+
+    <swiper-container init="false" #swiperLightboxThumbnails class="mySwiperThumbnails">
+      <swiper-slide class="swiper-slide-element--thumbnail">
+        <img [ngSrc]="data.gallery[0]" alt="" fill class="slide-image"/>
+      </swiper-slide>
+      <swiper-slide class="swiper-slide-element--thumbnail">
+        <img [ngSrc]="data.gallery[1]" alt="" fill class="slide-image"/>
+      </swiper-slide>
+      <swiper-slide class="swiper-slide-element--thumbnail">
+        <img [ngSrc]="data.gallery[2]" alt="" fill class="slide-image"/>
+      </swiper-slide>
+      <swiper-slide class="swiper-slide-element--thumbnail">
+        <img [ngSrc]="data.gallery[3]" alt="" fill class="slide-image"/>
+      </swiper-slide>
+    </swiper-container>
+
+  </mat-dialog-content>
+</div>
