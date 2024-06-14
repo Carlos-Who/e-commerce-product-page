@@ -1,27 +1,55 @@
-# ECommerceProductPage
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+# sneakers
+This project is a replica of the Frontend Mentor challenge, "E-commerce Product Page," and it was built using the Angular framework.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tech Stack
 
-## Code scaffolding
+**Client:** Angular v18.0.3 | Gsap v3.12.5 | Swiper v11.1.4
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Server:** No backend
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Demo
 
-## Running unit tests
+To view this project click on the next link: [Live preview](#https://sneakers-shop-backend--sneakers-shop-demo.us-central1.hosted.app/).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Run Locally
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Clone the project
 
-## Further help
+```bash
+  git clone git@github.com:Carlos-Who/e-commerce-product-page.git
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Go to the project directory
+
+```bash
+  cd e-commerce-product-page
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  ng serve
+```
+
+## Color Reference
+
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Orange | ![#ff7d1a](https://via.placeholder.com/10/ff7d1a?text=+) #ff7d1a |
+| Pale Orange | ![#ffede0](https://via.placeholder.com/10/ffede0?text=+) #ffede0 |
+| Very dark blue | ![#1d2025](https://via.placeholder.com/10/1d2025?text=+) #1d2025 |
+| Dark grayish blue | ![#68707d](https://via.placeholder.com/10/68707d?text=+) #68707d |
+| Grayish blue | ![#b6bcc8](https://via.placeholder.com/10/b6bcc8?text=+) #b6bcc8 |
+| Light grayish | ![#f7f8fd](https://via.placeholder.com/10/ffede0?text=+) #f7f8fd |
+| White | ![#ffffff](https://via.placeholder.com/10/ffffff?text=+) #ffffff |
+| Black | ![#000000](https://via.placeholder.com/10/000000?text=+) #000000 |
