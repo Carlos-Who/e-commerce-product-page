@@ -9,4 +9,5 @@ export interface Product {
   offerPrice: number;
   stock: number;
   gallery: string[];
+  thumbnailGallery: string[];
 }
