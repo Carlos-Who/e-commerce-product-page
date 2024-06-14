@@ -12,7 +12,7 @@ This project is a replica of the Frontend Mentor challenge, "E-commerce Product 
 
 ## Demo
 
-To view this project click on the next link: [Live preview](#https://sneakers-shop-backend--sneakers-shop-demo.us-central1.hosted.app/).
+To view this project click on the next link: [Live preview](https://sneakers-shop-backend--sneakers-shop-demo.us-central1.hosted.app/).
 
 
 ## Run Locally
