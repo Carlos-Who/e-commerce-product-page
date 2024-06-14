@@ -34,7 +34,6 @@ export class LightboxComponent {
   public swiperLightboxThumbnailsParams!: SwiperOptions;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: lightboxImages) {
-    console.log(this.data);
 
     afterNextRender((): void => {
       this.swiperLightboxParams = {
