@@ -21,10 +21,12 @@ import {
   PercentPipe
 } from "@angular/common";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatDialog} from "@angular/material/dialog";
 
 import {BreakpointsService} from "../../../core/services/breakpoints/breakpoints.service";
 import {ProductService} from "../../../core/services/product/product.service";
 import {CartService} from "../../../core/services/cart/cart.service";
+import {LightboxComponent} from "../../../shared/components/lightbox/lightbox.component";
 
 import {Product} from "../../../core/interfaces/product.interface";
 import { gsap } from "gsap";
@@ -32,6 +34,10 @@ import { gsap } from "gsap";
 import { SwiperOptions } from 'swiper/types';
 import {register, SwiperContainer} from 'swiper/element/bundle';
 register();
+
+export interface lightboxImages {
+  image: string[];
+}
 
 
 @Component({
@@ -84,7 +90,8 @@ export class ProductComponent implements OnInit {
     private formBuilder: FormBuilder,
     private _snackBar: MatSnackBar,
     private productService: ProductService,
-    private cartService: CartService
+    private cartService: CartService,
+    public dialogLightbox: MatDialog
   ) {
 
     this.addToCartForm = this.formBuilder.group({
@@ -167,6 +174,15 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  public openSnackBarSuccess(message: string, action: string): void {
+    this._snackBar.open(message, action, {
+      panelClass: 'success-snackbar',
+      duration: 2000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+    });
+  }
+
 
   public increment(): void {
     let currentValue = this.addToCartForm.get('selectedQuantity')?.value;
@@ -190,17 +206,21 @@ export class ProductComponent implements OnInit {
       if (!success) {
         this.openSnackBarError(`The total quantity exceeds the stock of ${this.product.stock}.`, "close");
       } else {
-        this._snackBar.open('Product added to cart!', 'Close', {
-          duration: 2000,
-          horizontalPosition: 'right',
-          verticalPosition: 'top'
-        });
+        this.openSnackBarSuccess('Product added to cart!', 'Close');
       }
       this.addToCartForm.reset({ selectedQuantity: 1 });
     } else {
       this.openSnackBarError('Error adding this product', 'close');
     }
     this.addToCartForm.reset({ selectedQuantity: 1 });
+  }
+
+  openDialogLightbox(index: any) {
+    console.log(index);
+    this.dialogLightbox.open(LightboxComponent, {
+      panelClass: 'lightbox-dialog',
+      data: { gallery: this.product.gallery },
+    });
   }
 
 }

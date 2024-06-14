@@ -5,7 +5,7 @@
     <div class="gallery">
 
       <div class="gallery__product-image-container">
-        <img [ngSrc]="product!.gallery[imageSelected()]" alt="" class="product-image" height="1000" width="1000" priority>
+        <img [ngSrc]="product!.gallery[imageSelected()]" alt="" class="product-image" height="1000" width="1000" priority (click)="openDialogLightbox(imageSelected())">
       </div>
 
       <div class="gallery__product-thumbnail-container">
