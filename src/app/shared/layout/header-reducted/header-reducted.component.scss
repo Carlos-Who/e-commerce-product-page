@@ -1,0 +1,144 @@
+
+.header-reducted {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  height: 4.5rem;
+  background-color: white;
+}
+
+.header-reducted-container {
+  display: flex;
+  height: 100%;
+}
+
+.header-reducted__menu-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: clamp(3.5rem, 25vw, 4rem);
+  border: none;
+  background-color: transparent;
+}
+
+.site-identity {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.header-reducted__controls {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-content: center;
+  grid-column-gap: .8rem;
+}
+
+.header-reducted__cart-container {
+  position: relative;
+}
+
+.header-reducted__profile-container {
+
+}
+
+.header-reducted__user-profile-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: clamp(2.6rem, 6.4vw, 3rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  overflow: hidden;
+  transition: border .18s ease-in;
+
+  &:hover {
+    border: 2px solid hsl(26, 100%, 55%);
+  }
+}
+
+
+
+// --- [ Overlay Menu ] ---
+
+.overlay-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0, 0%, 0%, 0.72);
+  backdrop-filter: blur(2px);
+}
+
+.header-reducted__menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  width: 70vw;
+  max-width: 18rem;
+  height: 100vh;
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid crimson;
+  isolation: isolate;
+}
+
+.header-reducted__menu-controls {
+  height: clamp(2rem, 11vh, 3.1rem);
+  margin-bottom: 1.5rem;
+}
+
+.menu-controls__close-button {
+  height: 100%;
+  aspect-ratio: 1;
+  border: none;
+  background-color: transparent;
+}
+
+.header-reducted__navigation {
+
+}
+
+.header-reducted__navigation-list {
+
+}
+
+.header-reducted__navigation-list-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-weight: 700;
+  margin-bottom: .5rem;
+
+  &:not(:last-child) {
+    margin-bottom: .5rem;
+  }
+}
+
+.header-reducted__navigation-list-item-link {
+  color: hsl(220, 13%, 13%);
+  width: 100%;
+  padding: .6em 1.1rem;
+
+  &:active {
+    background-color: hsl(25, 100%, 94%);
+    -webkit-tap-highlight-color: hsl(25, 100%, 94%);
+  }
+}
+
+.header-reducted__active-link {
+  color: hsl(26, 100%, 55%);
+}
