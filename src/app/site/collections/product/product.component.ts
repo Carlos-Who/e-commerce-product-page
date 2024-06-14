@@ -70,7 +70,7 @@ export class ProductComponent implements OnInit {
       this.totalQuantityInCart = cartItems
         .filter(item => item.itemInCart.id === this.product.id)
         .reduce((total, item) => total + item.quantity, 0);
-      console.log(`Total quantity in cart updated: ${this.totalQuantityInCart}`);
+      // console.log(`Total quantity in cart updated: ${this.totalQuantityInCart}`);
       this.updateFormValidators();
     });
   }
@@ -78,15 +78,15 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.product = this.productService.getProduct();
     this.originalProductStock = this.product.stock;
-    console.log('Product loaded:', this.product);
+    // console.log('Product loaded:', this.product);
     this.totalQuantityInCart = this.cartService.getAllItemsOcurrenceInCart(this.product.id)
       .reduce((total, item) => total + item.quantity, 0);
-    console.log('Total quantity in cart on init:', this.totalQuantityInCart);
+    // console.log('Total quantity in cart on init:', this.totalQuantityInCart);
     this.updateFormValidators();
   }
 
   public updateFormValidators(): void {
-    console.log('Updating form validators with max value:', this.product.stock - this.totalQuantityInCart);
+    // console.log('Updating form validators with max value:', this.product.stock - this.totalQuantityInCart);
     this.addToCartForm.get('selectedQuantity')?.setValidators([
       Validators.required,
       Validators.min(1),
@@ -132,7 +132,7 @@ export class ProductComponent implements OnInit {
   public submitAddToCart(): void {
     if (this.addToCartForm.valid) {
       const quantity = this.addToCartForm.get('selectedQuantity')?.value;
-      console.log(`Attempting to add ${quantity} items to cart.`);
+      // console.log(`Attempting to add ${quantity} items to cart.`);
       const success = this.cartService.saveItemInCart(this.product, quantity);
       if (!success) {
         this.openSnackBarError(`The total quantity exceeds the stock of ${this.product.stock}.`, "close");
