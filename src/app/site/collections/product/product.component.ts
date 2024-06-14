@@ -1,6 +1,25 @@
-import {Component, inject, effect, OnInit, signal, WritableSignal} from '@angular/core';
+import {
+  Component,
+  inject,
+  effect,
+  OnInit,
+  signal,
+  WritableSignal,
+  ViewChild,
+  ElementRef,
+  CUSTOM_ELEMENTS_SCHEMA, afterNextRender
+} from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {CurrencyPipe, DecimalPipe, NgClass, NgOptimizedImage, NgStyle, PercentPipe} from "@angular/common";
+import {
+  CurrencyPipe,
+  DecimalPipe,
+  NgClass,
+  NgForOf,
+  NgIf,
+  NgOptimizedImage,
+  NgStyle,
+  PercentPipe
+} from "@angular/common";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 import {BreakpointsService} from "../../../core/services/breakpoints/breakpoints.service";
@@ -9,6 +28,11 @@ import {CartService} from "../../../core/services/cart/cart.service";
 
 import {Product} from "../../../core/interfaces/product.interface";
 import { gsap } from "gsap";
+
+import { SwiperOptions } from 'swiper/types';
+import {register, SwiperContainer} from 'swiper/element/bundle';
+register();
+
 
 @Component({
   selector: 'app-product',
@@ -23,10 +47,16 @@ import { gsap } from "gsap";
     ReactiveFormsModule,
     CurrencyPipe,
   ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss'
 })
 export class ProductComponent implements OnInit {
+
+  @ViewChild('swiperGallerySliderMobile') swiperGallerySliderMobile!: ElementRef<SwiperContainer>;
+  public swiperParams!: SwiperOptions;
 
   public addToCartForm: FormGroup;
 
@@ -72,6 +102,29 @@ export class ProductComponent implements OnInit {
         .reduce((total, item) => total + item.quantity, 0);
       // console.log(`Total quantity in cart updated: ${this.totalQuantityInCart}`);
       this.updateFormValidators();
+    });
+
+    afterNextRender((): void => {
+      this.swiperParams = {
+        slidesPerView: 1,
+        navigation: true,
+        loop: true,
+        injectStyles: [
+          `.swiper-button-next, .swiper-button-prev {
+              background-color: #ffffffd1;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 1.3rem;
+              height: 1.3rem;
+              padding: .6em;
+              aspect-ratio: 1;
+              border-radius: 100%;
+          }`
+        ]
+      }
+      Object.assign(this.swiperGallerySliderMobile.nativeElement, this.swiperParams);
+      this.swiperGallerySliderMobile.nativeElement.initialize();
     });
   }
 

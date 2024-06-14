@@ -1,37 +1,83 @@
 
 <div class="product-page" [ngClass]="{'container-sm': currentBreakpoint != 'XSmall'}">
 
-  <div class="gallery">
+  @if (currentBreakpoint === 'Small' || currentBreakpoint === 'Medium' || currentBreakpoint === 'Large' || currentBreakpoint === 'XLarge') {
+    <div class="gallery">
 
-  </div>
+      <div class="gallery__product-image-container">
+        <img [ngSrc]="product!.gallery[imageSelected()]" alt="" class="product-image" height="1000" width="1000" priority>
+      </div>
 
-  <div class="gallery--reducted">
+      <div class="gallery__product-thumbnail-container">
+        @for (thumbnail of product!.thumbnailGallery; track thumbnail; let index = $index) {
+          <button type="button" tabindex="0" class="product-thumbnail" [ngClass]="index == imageSelected() ? 'product-thumbnail--selected' : ''" (click)="selectedThumbnail(index)">
+            <img [ngSrc]="thumbnail" alt="" fill>
+          </button>
+        }
+      </div>
 
-  </div>
+    </div>
+  }
+
+  <swiper-container init="false" #swiperGallerySliderMobile class="mySwiper" [ngClass]="currentBreakpoint !== 'XSmall' ? 'hide-slider' : ''">
+    <swiper-slide class="swiper-slide-element">
+      <img [ngSrc]="product.gallery[0]" alt="" fill priority class="slide-image"/>
+    </swiper-slide>
+    <swiper-slide class="swiper-slide-element">
+      <img [ngSrc]="product.gallery[0]" alt="" fill priority class="slide-image"/>
+    </swiper-slide>
+    <swiper-slide class="swiper-slide-element">
+      <img [ngSrc]="product.gallery[0]" alt="" fill priority class="slide-image"/>
+    </swiper-slide>
+    <swiper-slide class="swiper-slide-element">
+      <img [ngSrc]="product.gallery[0]" alt="" fill priority class="slide-image"/>
+    </swiper-slide>
+  </swiper-container>
 
   <section class="product-details--grid" [ngClass]="{'container': currentBreakpoint === 'XSmall'}">
 
-    <p class="product-details__brand-name">Sneaker Company</p>
-    <h2 class="product-details__product-title">Fall Limited Edition Sneakers</h2>
-    <p class="product-details__product-description">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything weather can offer.</p>
+    <p class="product-details__brand-name">{{ product!.brandName }}</p>
+    <h2 class="product-details__product-title">{{ product!.title }}</h2>
+    <p class="product-details__product-description">{{ product!.description }}</p>
 
     <div class="price-container">
       <p class="price-details">
-        <span class="current-price">$125.00</span>
-        <span class="discount-percentage">50%</span>
-        <span class="regular-price"><s>$250.00</s></span>
+        <span class="current-price">{{ product!.offerPrice | currency }}</span>
+        <span class="discount-percentage">{{ product!.discountPercentage | percent }}</span>
+        <span class="regular-price"><s>{{ product!.regularPrice | currency }}</s></span>
       </p>
     </div>
 
-    <form (ngSubmit)="addToCart()" class="controls-form">
+    <form [formGroup]="addToCartForm" (ngSubmit)="submitAddToCart()" class="controls-form" autocomplete="off">
 
       <div class="quantity-controls">
-        <button type="button" class="decrement-button" (click)="decrement()">
-          <img ngSrc="/icons/icon-minus.svg" alt="" height="12" width="12">
+        <button type="button" class="decrement-button"
+                [ngClass]="{'cartControlsButton--disabled': addToCartForm.controls['selectedQuantity'].value <= 1}"
+                (click)="decrement()"
+                [disabled]="addToCartForm.controls['selectedQuantity'].value <= 1">
+          <svg width="12" height="4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+              <path d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z" id="a" />
+            </defs>
+            <use fill-rule="nonzero" xlink:href="#a" />
+          </svg>
         </button>
-        <span class="span-quantity-input"><input type="number" [(ngModel)]="selectedQuantity" class="quantity-input disable-default-number-controls" name="quantity" min="1" /></span>
-        <button type="button" class="increment-button" (click)="increment()">
-          <img ngSrc="/icons/icon-plus.svg" alt="" height="12" width="12">
+
+        <span class="span-quantity-input">
+          <input type="number" min="1" formControlName="selectedQuantity"
+           class="quantity-input disable-default-number-controls" name="quantity" />
+        </span>
+
+        <button type="button" class="increment-button"
+                [ngClass]="{'cartControlsButton--disabled': addToCartForm.controls['selectedQuantity'].value + totalQuantityInCart >= product.stock}"
+                (click)="increment()"
+                [disabled]="addToCartForm.controls['selectedQuantity'].value + totalQuantityInCart >= product.stock">
+          <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+              <path d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z" id="b" />
+            </defs>
+            <use fill-rule="nonzero" xlink:href="#b" />
+          </svg>
         </button>
       </div>
 
@@ -42,7 +88,6 @@
         <span>Add to cart</span>
       </button>
     </form>
-
 
   </section>
 
