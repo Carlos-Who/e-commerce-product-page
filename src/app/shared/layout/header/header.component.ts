@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 import {RouterLink, RouterLinkActive} from "@angular/router";
+import {CartComponent} from "../../components/cart/cart.component";
+import {MatTooltip} from "@angular/material/tooltip";
 
 @Component({
   selector: 'app-header',
@@ -8,7 +10,9 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
   imports: [
     NgOptimizedImage,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    CartComponent,
+    MatTooltip
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
