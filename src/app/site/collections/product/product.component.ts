@@ -8,6 +8,7 @@ import {ProductService} from "../../../core/services/product/product.service";
 import {CartService} from "../../../core/services/cart/cart.service";
 
 import {Product} from "../../../core/interfaces/product.interface";
+import { gsap } from "gsap";
 
 @Component({
   selector: 'app-product',
@@ -96,6 +97,12 @@ export class ProductComponent implements OnInit {
 
   public selectedThumbnail(index: number): void {
     this.imageSelected.set(index);
+    gsap.from(".gallery__product-image-container", {
+      duration: .3,
+      opacity: .3,
+      ease: "none",
+      x: 20,
+    });
   }
 
   public openSnackBarError(message: string, action: string): void {
