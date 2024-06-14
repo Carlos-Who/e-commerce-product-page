@@ -92,3 +92,29 @@ input[type=number].disable-default-number-controls {
   color: white;
   background: hsl(26, 100%, 55%);
 }
+
+.error-snackbar {
+  color: #ff2b5a;
+  --mdc-snackbar-supporting-text-color: #990627;
+  --mdc-snackbar-container-color: #ffbbc2;
+
+  .mat-mdc-snack-bar-action {
+    --mat-snack-bar-button-color: #990627;
+  }
+}
+
+.success-snackbar {
+  color: #2bff95;
+  --mdc-snackbar-supporting-text-color: #067c39;
+  --mdc-snackbar-container-color: #bbffe0;
+
+  .mat-mdc-snack-bar-action {
+    --mat-snack-bar-button-color: #067c39;
+  }
+}
+
+.lightbox-dialog {
+  .mat-mdc-dialog-surface {
+    background-color: transparent;
+  }
+}
