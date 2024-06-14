@@ -40,13 +40,18 @@
             </svg>
           </button>
         </article>
+      } @empty {
+        <p class="empty-cart-message">Your cart is empty.</p>
       }
 
     </div>
 
-    <footer class="cart-dialog-footer">
-      <button class="cart-dialog__checkout-button">Checkout</button>
-    </footer>
+    @if(cartItems.length > 0) {
+      <footer class="cart-dialog-footer">
+        <button class="cart-dialog__checkout-button">Checkout</button>
+      </footer>
+    }
+
 
   </div>
 }
